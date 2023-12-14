@@ -1,0 +1,49 @@
+// https://leetcode.com/problems/difference-between-ones-and-zeros-in-row-and-column/?envType=daily-question&envId=2023-12-14
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+void file_i_o()
+{ 
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+    #ifndef ONLINE_JUDGE
+    freopen("input.txt","r",stdin);
+    freopen("output.txt","w",stdout);
+    #endif
+}
+	
+	class Solution {
+public:
+    vector<vector<int>> onesMinusZeros(vector<vector<int>>& grid) {
+        int n = grid.size(), m = grid[0].size();
+        vector<int> row(n), col(m);
+        vector<vector<int>> ans(n);
+
+        for(int i=0;i<n;i++)
+            for(int j=0;j<m;j++)
+                if(grid[i][j] == 1) row[i]++, col[j]++;
+            
+
+        for(int i=0;i<n;i++)
+                for(int j=0;j<m;j++)
+                    ans[i].push_back(row[i] + col[j] - (n-row[i]) - (m-col[j]));
+
+
+
+        return ans;
+    }
+};
+
+
+
+	
+    int main ()
+  {
+    	file_i_o();
+    	
+
+
+  }
